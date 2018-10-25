@@ -34,6 +34,11 @@ gem 'devise'
 # Bootstrap 4 rubygem for Rails / Sprockets / Hanami / etc
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
+# Twitter Bootstrap for Rails 5 - 4.x Asset Pipeline
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
