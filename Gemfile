@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# Bootstrap 4 rubygem for Rails / Sprockets / Hanami / etc
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
