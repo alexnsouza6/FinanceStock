@@ -35,10 +35,6 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
-# Twitter Bootstrap for Rails 5 - 4.x Asset Pipeline
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -48,6 +44,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # RSpec for Rails-3+ 
+  gem 'rspec-rails', '~> 3.8'
+  #
+  gem 'shoulda-matchers'
 end
 
 group :development do
