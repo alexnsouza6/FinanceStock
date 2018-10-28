@@ -33,4 +33,17 @@ RSpec.describe Stock, type: :model do
       end
     end
   end
+
+  describe 'when testing instance methods...' do
+    context '#find_by_ticker' do
+      it 'expects to return a stock object if stock exists in db' do
+        stock = Stock.create(name: 'Corporation', ticker:'CORP', last_price: 13_000)
+        expect(Stock.find_by_ticker(stock.ticker)).to be_an_instance_of Stock
+      end
+
+      it 'expects to return a stock object if stock doesnt exist in db' do
+        expect(Stock.find_by_ticker('GOOG')).to be_nil
+      end
+    end
+  end
 end
