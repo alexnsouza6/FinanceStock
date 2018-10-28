@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'my_portfolio', to: 'users#my_portfolio'
   # StockController
   get 'search_stocks', to: 'stocks#search'
-
+  # UserStockController
+  resources :user_stocks, only: [:create]
 end

@@ -7,6 +7,11 @@ RSpec.describe Stock, type: :model do
     it { is_expected.to validate_presence_of(:last_price) }
   end
 
+  describe 'when testing associations...' do
+    it { is_expected.to have_many(:user_stocks) }
+    it { is_expected.to have_many(:users).through(:user_stocks) }
+  end
+
   describe 'when testing class methods...' do
     context '.quote_request' do
       context 'when requested symbol is valid' do
