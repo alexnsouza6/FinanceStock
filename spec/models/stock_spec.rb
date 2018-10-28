@@ -6,4 +6,26 @@ RSpec.describe Stock, type: :model do
     it { is_expected.to validate_presence_of(:ticker) }
     it { is_expected.to validate_presence_of(:last_price) }
   end
+
+  describe 'when testing class methods...' do
+    context '.quote_request' do
+      context 'when requested symbol is valid' do
+        let(:stock) { Stock.quote_request('GOOG') }
+        it 'expects to return a new stock object' do
+          expect(stock).to be_an_instance_of Stock
+        end
+
+        it 'expects to return a stock object with a name' do
+          expect(stock.name).not_to be nil
+        end
+      end
+
+      context 'when requested symbol is not valid' do
+        let(:stock) { Stock.quote_request('Some_string') }
+        it 'expects to return a new stock object' do
+          expect(stock).to be nil
+        end
+      end
+    end
+  end
 end

@@ -1,0 +1,8 @@
+<%= render partial: 'layouts/messages' %>
+<div class="col-md-12 well results-block">
+  <% if @stock %>
+    <strong>Symbol: </strong> <%= @stock.ticker %>
+    <strong>Name: </strong> <%= @stock.name %>
+    <strong>Price: </strong> <%= @stock.last_price %>
+  <% end %>
+</div>
