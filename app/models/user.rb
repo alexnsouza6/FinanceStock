@@ -7,6 +7,8 @@ class User < ApplicationRecord
   # Associations
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
+  has_many :friendship
+  has_many :friends, through: :friendship
 
   # Validations
   validates :first_name, presence: true

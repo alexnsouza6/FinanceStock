@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   describe 'when testing associations...' do
     it { is_expected.to have_many(:user_stocks) }
     it { is_expected.to have_many(:stocks).through(:user_stocks) }
+    it { is_expected.to have_many(:friendship) }
+    it { is_expected.to have_many(:friends).through(:friendship) }
   end
 
   describe 'when testing validations' do
