@@ -6,6 +6,11 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:stocks).through(:user_stocks) }
   end
 
+  describe 'when testing validations' do
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+  end
+
   describe 'when testing instance methods...' do
     let(:user) { User.create(email: '123@email.com', password: '123123') }
     let(:stock) do

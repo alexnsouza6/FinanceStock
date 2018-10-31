@@ -8,6 +8,12 @@ class User < ApplicationRecord
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
 
+  # Validations
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+  # Instance Methods
+
   def stock_already_added?(ticker_symbol)
     stock = Stock.find_by_ticker(ticker_symbol)
     return false unless stock
