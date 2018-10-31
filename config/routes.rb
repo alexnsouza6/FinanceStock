@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   # StockController
   get 'search_stocks', to: 'stocks#search'
   # UserStockController
-  resources :user_stocks, only: [:create]
+  resources :user_stocks, only: %i[create destroy]
 end

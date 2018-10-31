@@ -1,4 +1,9 @@
-#
+# frozen_string_literal: true
+
+# Controller that handles user UI
 class UsersController < ApplicationController
-  def my_portfolio; end
+  def my_portfolio
+    @user = current_user
+    @user_stocks = @user.stocks
+  end
 end

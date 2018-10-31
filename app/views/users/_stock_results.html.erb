@@ -4,7 +4,7 @@
     <strong>Symbol: </strong> <%= @stock.ticker %>
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>
-    <% if current_user.can_add_stock? %>
+    <% if current_user.can_add_stock?(@stock) %>
       <%= link_to 'Add Stock to my Portfolio', user_stocks_path(user: current_user, stock: @stock.ticker), 
                                     class: 'btn btn-xs btn-success', method: :post %>
     <% else %>
