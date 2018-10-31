@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # UsersController
   get 'my_portfolio', to: 'users#my_portfolio'
+  get 'my_friends', to: 'users#my_friends'
   # StockController
   get 'search_stocks', to: 'stocks#search'
   # UserStockController
