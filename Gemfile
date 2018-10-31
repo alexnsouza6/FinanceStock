@@ -42,6 +42,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # A ruby gem that retrieves stock quotes from IEX
 gem "stock_quote", '~> 2.0.0'
 
+# The font-awesome font bundled as an asset for the rails asset pipeline
+gem 'font-awesome-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
