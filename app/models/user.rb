@@ -34,4 +34,29 @@ class User < ApplicationRecord
 
     false
   end
+
+  def self.search(param)
+    users = (query_first_name(param) +
+             query_last_name(param) +
+             query_email(param)).uniq
+    return nil unless users
+
+    users
+  end
+
+  def self.query_first_name(param)
+    matches('first_name', param)
+  end
+
+  def self.query_last_name(param)
+    matches('last_name', param)
+  end
+
+  def self.query_email(param)
+    matches('email', param)
+  end
+
+  def self.matches(field, param)
+    where("#{field} like ?", "%#{param}%")
+  end
 end

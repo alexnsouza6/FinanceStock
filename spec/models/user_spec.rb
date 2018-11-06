@@ -14,7 +14,12 @@ RSpec.describe User, type: :model do
   end
 
   describe 'when testing instance methods...' do
-    let(:user) { User.create(email: '123@email.com', password: '123123') }
+    let!(:user) do
+      User.create!(email: '123@email.com',
+                   password: '123123',
+                   first_name: 'Alex',
+                   last_name: 'Souza')
+    end
     let(:stock) do
       Stock.create(ticker: 'GOOG', name: 'Alphabet Inc.', last_price: 13_000)
     end
@@ -53,6 +58,13 @@ RSpec.describe User, type: :model do
         allow(user).to receive(:stock_already_added?).and_return(true)
         allow(user).to receive(:under_stock_limit?).and_return(true)
         expect(user.can_add_stock?('GOOG')).to be_falsy
+      end
+    end
+
+    context '.search' do
+      it 'expect to fetch a user according to first name' do
+        fetched_user = User.search('Alex')
+        expect(fetched_user).to be_an_instance_of Array
       end
     end
   end
