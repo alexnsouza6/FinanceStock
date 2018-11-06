@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # UsersController
   get 'my_portfolio', to: 'users#my_portfolio'
   get 'my_friends', to: 'users#my_friends'
+  get 'search_friends', to: 'users#search'
+  resources :users, only: :show
+  resources :friendships, only: :destroy
   # StockController
   get 'search_stocks', to: 'stocks#search'
   # UserStockController
