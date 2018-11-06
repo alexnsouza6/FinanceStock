@@ -1,0 +1,14 @@
+<div class="container">
+  <h1> <%= "#{@user.first_name}'s" %> Homepage </h1>
+  <h2> Welcome! </h2>
+  <strong> Name: </strong> <%= @user.first_name %> <%= @user.last_name %> </br>
+  <strong> E-mail: </strong> <%= @user.email %> </br>
+
+  <% if @user.stocks.any? %>
+    <%= render partial: 'stocks/list' %> 
+  <% else %>
+    <span class="label">
+      This user has no stocks!
+    </span>
+  <% end %>
+</div>

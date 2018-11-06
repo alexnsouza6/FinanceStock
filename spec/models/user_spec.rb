@@ -67,5 +67,18 @@ RSpec.describe User, type: :model do
         expect(fetched_user).to be_an_instance_of Array
       end
     end
+
+    context '#is_already_friend?' do
+      let(:user2) do
+        User.create!(email: '1234@email.com',
+                     password: '123123',
+                     first_name: 'Xeloncios',
+                     last_name: 'Souza')
+      end
+      it 'expect to return true if two users are already friends' do
+        user.friends << user2
+        expect(user.already_friend?(user2)).to be_truthy
+      end
+    end
   end
 end

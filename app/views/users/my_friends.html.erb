@@ -1,5 +1,8 @@
 <div class="container">
   <%= render partial: 'friends/lookup' %>
+  <div id="results">
+    <%= render partial: 'friends/result' %>
+  </div>
   <% if @friendship.length > 0 %>
     <table class="table table-striped">
       <thead>

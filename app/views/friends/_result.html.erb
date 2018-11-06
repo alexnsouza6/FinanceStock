@@ -1,0 +1,27 @@
+<%= render partial: 'layouts/messages' %>
+<div class="col-md-12 well results-block">
+  <table class="search-results-table col-md-12">
+    <tbody>
+      <% if @users %>
+        <% @users.each do |user| %>
+          <tr>
+            <td><strong>Name:  </strong> <%= user.first_name %> <%= user.last_name %></td>
+            <td><strong>Email: </strong> <%= user.email %></td>
+            <% if current_user.already_friend?(user.id) %>
+              <td>
+                <span class="label label-primary">
+                  You are already friends.
+                </span>
+              </td>
+            <% else %>
+              <td>
+                <%= link_to 'Add Friend', add_friend_path(user: current_user, friend: user), 
+                                        class: 'btn btn-xs btn-success', method: :post %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

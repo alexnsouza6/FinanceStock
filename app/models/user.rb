@@ -16,6 +16,14 @@ class User < ApplicationRecord
 
   # Instance Methods
 
+  def already_friend?(user_id)
+    friendship.where(friend_id: user_id).exists?
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == id }
+  end
+
   def stock_already_added?(ticker_symbol)
     stock = Stock.find_by_ticker(ticker_symbol)
     return false unless stock
